@@ -1,5 +1,7 @@
+var express = require('express'); // Webframework for nodejs, quite powerfull
+var app = express(); 
+
 var winston = require('winston');
-var express = require('express');
 // 
 // Requiring `winston-logstash` will expose 
 // `winston.transports.Logstash` 
@@ -35,10 +37,7 @@ app.get('/broke', function (req, res) {
 	res.status(500).send('Something broke!');	
 });
 
-var server = app.listen(process.env.PORT || 3000, function () {
-
-  var port = server.address().port;
-
-  winston.info('Example app listening at port %s', port);
-
-});
+var port = process.env.PORT || 3000 // either use the port 3000 or a port which is in the "environment variable" - the cloud will deliver us such a port 
+app.listen(port); // tell nodejs to listen to this port and give response
+ 
+console.log('I am ready and listening on %d', port); // write something nice in the c
