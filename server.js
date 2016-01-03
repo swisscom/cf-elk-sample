@@ -28,7 +28,7 @@ app.get('/', function (req, res) {
 })
 
 app.get('/blocked', function (req, res) {
-	winston.info(req.headers);
+	winston.warn(req.headers);
 	res.status(401).send('Something blocked!');
 });
 
