@@ -22,19 +22,24 @@ winston.add(winston.transports.Logstash, {
 var app = express();
 
 app.get('/', function (req, res) {
-  winston.info('Hello World!');
-  winston.info(req.headers);
-  res.send('Hello World!');
+	//send headers on info level to elk
+	winston.info(req.headers);
+	//return HTTP 200 response 
+	res.send('Hello World!');
 })
 
 app.get('/blocked', function (req, res) {
+	//send headers on warning level to elk
 	winston.warn(req.headers);
+	//return HTTP 401 response
 	res.status(401).send('Something blocked!');
 });
 
 app.get('/broke', function (req, res) {
+	//send headers on error level to elk
 	winston.error(req.headers);
-	res.status(500).send('Something broke!');	
+	//return HTTP 500 response
+	res.status(500).send('Something broke!');
 });
 
 var port = process.env.PORT || 3000 // either use the port 3000 or a port which is in the "environment variable" - the cloud will deliver us such a port 
