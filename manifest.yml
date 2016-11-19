@@ -2,7 +2,6 @@
 applications:
 - name: nodejs-elk-sample
   memory: 128M
-  instances: 1
   buildpack: https://github.com/cloudfoundry/nodejs-buildpack.git
   host: nodejs-elk-sample-random
   services:

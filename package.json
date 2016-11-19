@@ -1,18 +1,29 @@
 {
   "name": "nodejs-elk-sample",
   "version": "0.0.1",
+  "description": "A sample Node.js application which logs to ELK on the Swisscom Application Cloud",
+  "keywords": [
+    "elk",
+    "cloud-foundry"
+  ],
   "author": "Lukas Lehmann",
-  "main": "server.js",
   "engines": {
-    "node": "4.3.2"
+    "node": ">=6"
   },
   "dependencies": {
-    "cfenv": "1.0.3",
-    "express": "^4.13.3",
-    "winston": "2.1.1",
-    "winston-logstash": "0.2.11"
+    "cfenv": "^1.0.3",
+    "express": "^4.14.0",
+    "winston": "^2.3.0",
+    "winston-logstash": "^0.3.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swisscom/cf-elk-sample"
+  },
+  "bugs": {
+    "url": "https://github.com/swisscom/cf-elk-sample/issues"
   }
 }
